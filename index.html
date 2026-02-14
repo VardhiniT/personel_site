@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valentine Surprise 💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+  --pink1:#ffd6eb;
+  --pink2:#ffeaf6;
+  --mainPink:#ff4d88;
+  --darkPink:#ff1a66;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(135deg,var(--pink1),var(--pink2));
+  overflow-x:hidden;
+  text-align:center;
+  color:var(--mainPink);
+}
+
+/* Floating hearts */
+.heart{
+  position:fixed;
+  font-size:18px;
+  animation:float 6s linear infinite;
+  opacity:0.7;
+}
+
+@keyframes float{
+  0%{transform:translateY(100vh) scale(0.8);}
+  100%{transform:translateY(-10vh) scale(1.2);}
+}
+
+/* Main Card */
+.card{
+  background:rgba(255,255,255,0.6);
+  backdrop-filter:blur(15px);
+  width:90%;
+  max-width:600px;
+  margin:80px auto;
+  padding:50px;
+  border-radius:30px;
+  box-shadow:0 20px 60px rgba(255,105,180,0.3);
+}
+
+.card h2{
+  font-family:'Pacifico';
+  font-size:35px;
+  margin-bottom:20px;
+}
+
+.card p{
+  line-height:1.7;
+  font-size:16px;
+}
+
+.btn{
+  margin-top:30px;
+  padding:14px 35px;
+  border:none;
+  border-radius:40px;
+  font-size:16px;
+  background:linear-gradient(45deg,var(--mainPink),var(--darkPink));
+  color:white;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.btn:hover{
+  transform:scale(1.08);
+}
+
+/* Popup Overlay */
+.popup{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(255,105,180,0.25);
+  backdrop-filter:blur(8px);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+/* Popup Card */
+.popup-content{
+  background:rgba(255,255,255,0.7);
+  backdrop-filter:blur(20px);
+  border-radius:35px;
+  padding:50px 30px;
+  width:100%;
+  max-width:500px;
+  position:relative;
+  box-shadow:0 20px 60px rgba(255,0,128,0.4);
+  animation:fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn{
+  from{transform:scale(0.8); opacity:0;}
+  to{transform:scale(1); opacity:1;}
+}
+
+.close{
+  position:absolute;
+  top:15px;
+  right:20px;
+  font-size:20px;
+  cursor:pointer;
+  color:var(--mainPink);
+}
+
+/* Circular Image */
+.profile-img{
+  width:160px;
+  height:160px;
+  border-radius:50%;
+  object-fit:cover;
+  border:6px solid white;
+  box-shadow:0 0 25px var(--mainPink);
+  margin-bottom:20px;
+}
+
+.popup-content h3{
+  font-family:'Pacifico';
+  font-size:30px;
+  margin-bottom:15px;
+}
+
+.popup-content p{
+  font-size:15px;
+  line-height:1.7;
+  margin-bottom:20px;
+}
+
+.emoji-row{
+  font-size:22px;
+}
+
+/* Responsive */
+@media(max-width:600px){
+  .card{
+    padding:30px;
+  }
+  .popup-content{
+    padding:40px 20px;
+  }
+}
+
+</style>
+</head>
+<body>
+
+<div class="card">
+  <h2>A Little Love Note 💌</h2>
+  <p>
+    Every moment with you feels like a beautiful dream I never want to wake up from.
+    You make my heart smile in ways I never knew were possible.
+    You're my favorite person, my safe place, and my greatest adventure. 💖
+  </p>
+  <button class="btn" onclick="openPopup()">Click for Surprise 💝</button>
+</div>
+
+<!-- Popup -->
+<div class="popup" id="popup">
+  <div class="popup-content">
+    <span class="close" onclick="closePopup()">✖</span>
+
+    <div style="font-size:28px; margin-bottom:15px;">🎉💖🎉</div>
+
+    <!-- CHANGE IMAGE BELOW -->
+    <img src="your-photo.jpg" class="profile-img">
+
+    <h3>You're My Everything, Vardhu! 💕</h3>
+
+    <p>
+      If I could give you one thing in life, I'd give you the ability to see yourself 
+      through my eyes. Only then would you realize how special you are to me. 
+      I love you more than words can say!
+    </p>
+
+    <div class="emoji-row">❤️ 💕 💖 💗 ❤️</div>
+
+  </div>
+</div>
+
+<script>
+
+/* Floating hearts */
+function createHeart(){
+  const heart=document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerHTML="💗";
+  heart.style.left=Math.random()*100+"vw";
+  heart.style.fontSize=(15+Math.random()*20)+"px";
+  heart.style.animationDuration=(3+Math.random()*5)+"s";
+  document.body.appendChild(heart);
+  setTimeout(()=>heart.remove(),6000);
+}
+setInterval(createHeart,500);
+
+function openPopup(){
+  document.getElementById("popup").style.display="flex";
+}
+
+function closePopup(){
+  document.getElementById("popup").style.display="none";
+}
+
+</script>
+
+</body>
+</html>
