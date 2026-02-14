@@ -60,12 +60,8 @@ body{
 }
 
 @keyframes softGlow{
-  from{
-    text-shadow:0 0 10px rgba(255,120,170,0.6);
-  }
-  to{
-    text-shadow:0 0 30px rgba(255,120,170,1);
-  }
+  from{ text-shadow:0 0 10px rgba(255,120,170,0.6);}
+  to{ text-shadow:0 0 30px rgba(255,120,170,1);}
 }
 
 .sub-text{
@@ -86,9 +82,7 @@ body{
   box-shadow:0 5px 20px rgba(255,0,128,0.2);
   transition:0.3s;
 }
-.music-box:hover{
-  transform:scale(1.05);
-}
+.music-box:hover{ transform:scale(1.05); }
 
 /* Card */
 .card{
@@ -107,13 +101,11 @@ body{
   margin-bottom:20px;
 }
 
-.card p{
-  line-height:1.7;
-}
+.card p{ line-height:1.7; }
 
 /* Buttons */
 .btn{
-  margin-top:25px;
+  margin:15px;
   padding:14px 35px;
   border:none;
   border-radius:30px;
@@ -122,9 +114,7 @@ body{
   cursor:pointer;
   transition:0.3s;
 }
-.btn:hover{
-  transform:scale(1.05);
-}
+.btn:hover{ transform:scale(1.05); }
 
 /* Popup */
 .popup{
@@ -138,6 +128,7 @@ body{
   display:none;
   align-items:center;
   justify-content:center;
+  z-index:1000;
 }
 
 .popup-content{
@@ -164,7 +155,6 @@ body{
   font-size:20px;
 }
 
-/* Romantic Image */
 .romantic-img{
   width:100%;
   border-radius:20px;
@@ -199,18 +189,34 @@ body{
   <button class="btn" onclick="openPopup()">Click for Surprise 💝</button>
 </div>
 
-<!-- Popup -->
+<div class="card proposal">
+  <h2>Will you be my Valentine? 💘</h2>
+  <button class="btn" onclick="showYesPopup()">YES 😍</button>
+  <button class="btn" id="noBtn" onmouseover="moveNo()">NO 😜</button>
+</div>
+
+<!-- Surprise Popup -->
 <div class="popup" id="popup">
   <div class="popup-content">
     <span class="close" onclick="closePopup()">✖</span>
-
     <img src="couple.jpg" class="romantic-img">
-
     <h2 style="font-family:'Pacifico'">You're My Everything 💕</h2>
     <p>
       In your arms, I find my home.
       In your smile, I find my peace.
       In your love, I find my forever. ❤️
+    </p>
+  </div>
+</div>
+
+<!-- YES Popup -->
+<div class="popup" id="yesPopup">
+  <div class="popup-content">
+    <span class="close" onclick="closeYesPopup()">✖</span>
+    <div style="font-size:40px;">🎉🥳💖</div>
+    <h2 style="font-family:'Pacifico'">Yaaay!</h2>
+    <p>
+      I knew you'd say yes! You just made me the happiest person ever! 🥰💕
     </p>
   </div>
 </div>
@@ -241,7 +247,7 @@ function createHeart(){
 }
 setInterval(createHeart,500);
 
-/* Popup */
+/* Surprise Popup */
 function openPopup(){
   document.getElementById("popup").style.display="flex";
 }
@@ -249,14 +255,28 @@ function closePopup(){
   document.getElementById("popup").style.display="none";
 }
 
+/* YES Popup */
+function showYesPopup(){
+  document.getElementById("yesPopup").style.display="flex";
+}
+function closeYesPopup(){
+  document.getElementById("yesPopup").style.display="none";
+}
+
+/* Move NO button */
+function moveNo(){
+  const btn=document.getElementById("noBtn");
+  btn.style.position="absolute";
+  btn.style.left=Math.random()*80+"%";
+  btn.style.top=Math.random()*80+"%";
+}
+
 /* Play YouTube Music */
 function playMusic(){
-  const box = document.getElementById("musicBox");
-
-  document.getElementById("youtubeIframe").src =
+  const box=document.getElementById("musicBox");
+  document.getElementById("youtubeIframe").src=
     "https://www.youtube.com/embed/Umqb9KENgmk?autoplay=1&loop=1&playlist=Umqb9KENgmk";
-
-  box.innerHTML = "💓 My heart beats only for you...";
+  box.innerHTML="💓 My heart beats only for you...";
 }
 
 </script>
@@ -264,7 +284,4 @@ function playMusic(){
 </body>
 </html>
 
-
-</body>
-</html>
 
