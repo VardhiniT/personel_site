@@ -3,281 +3,199 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Valentine's Day 💖</title>
+<title>Happy Valentine</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 
-:root{
-  --bg1:#ffeaf6;
-  --bg2:#ffd6eb;
-  --pink:#ff5c8a;
-  --softPink:#ff8fb1;
-}
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
 body{
+  margin:0;
   font-family:'Poppins',sans-serif;
-  background:linear-gradient(to bottom,var(--bg1),var(--bg2));
-  text-align:center;
+  background:linear-gradient(135deg,#ffe6f0,#ffd6e7);
   overflow-x:hidden;
-  color:var(--pink);
+  text-align:center;
+  color:#ff2e6f;
 }
 
 /* Floating hearts */
 .heart{
   position:fixed;
+  bottom:-20px;
   font-size:20px;
-  animation:float 6s linear infinite;
-  opacity:0.6;
-}
-@keyframes float{
-  0%{transform:translateY(100vh);}
-  100%{transform:translateY(-10vh);}
+  animation: floatUp 8s linear infinite;
+  opacity:0.7;
 }
 
-/* Hero */
-.hero{
-  padding:100px 20px 50px;
+@keyframes floatUp{
+  from{transform:translateY(0);}
+  to{transform:translateY(-110vh);}
 }
 
+/* Glowing cursive title */
 .glow-title{
-  font-family:'Pacifico', cursive;
-  font-size:70px;
-  background:linear-gradient(45deg,#ff4d88,#ff85a2);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
+  font-family:'Great Vibes',cursive;
+  font-size:90px;
+  margin-top:60px;
   text-shadow:
-    0 0 15px rgba(255,120,170,0.7),
-    0 0 30px rgba(255,120,170,0.6);
-  animation:softGlow 3s ease-in-out infinite alternate;
+    0 0 10px #ff5c8a,
+    0 0 20px #ff5c8a,
+    0 0 40px #ff85a2,
+    0 0 60px #ff2e6f;
+  animation: glowPulse 2s infinite alternate;
 }
 
-@keyframes softGlow{
-  from{ text-shadow:0 0 10px rgba(255,120,170,0.6);}
-  to{ text-shadow:0 0 30px rgba(255,120,170,1);}
+@keyframes glowPulse{
+  from{
+    text-shadow:0 0 10px #ff5c8a,0 0 20px #ff85a2;
+  }
+  to{
+    text-shadow:0 0 20px #ff2e6f,0 0 40px #ff2e6f,0 0 80px #ff85a2;
+  }
 }
 
-.sub-text{
-  margin-top:15px;
-  font-size:22px;
+.sub{
+  font-family:'Great Vibes',cursive;
+  font-size:30px;
+  margin-top:-20px;
 }
 
-/* Music Button */
-.music-box{
-  margin-top:20px;
-  display:inline-block;
-  background:rgba(255,255,255,0.6);
-  backdrop-filter:blur(10px);
-  padding:10px 25px;
-  border-radius:30px;
-  cursor:pointer;
-  font-size:14px;
-  box-shadow:0 5px 20px rgba(255,0,128,0.2);
-  transition:0.3s;
-}
-.music-box:hover{ transform:scale(1.05); }
-
-/* Card */
-.card{
-  background:rgba(255,255,255,0.5);
-  backdrop-filter:blur(15px);
-  width:90%;
-  max-width:600px;
-  margin:40px auto;
-  padding:50px;
-  border-radius:35px;
-  box-shadow:0 20px 50px rgba(255,100,150,0.2);
+/* Image */
+.main-img{
+  width:320px;
+  margin:30px auto;
+  border-radius:20px;
+  box-shadow:0 15px 40px rgba(255,105,135,0.4);
+  transition:0.4s;
 }
 
-.card h2{
-  font-family:'Pacifico';
-  margin-bottom:20px;
+.main-img:hover{
+  transform:scale(1.05);
 }
-
-.card p{ line-height:1.7; }
 
 /* Buttons */
 .btn{
-  margin:15px;
-  padding:14px 35px;
+  background:linear-gradient(45deg,#ff4f81,#ff2e6f);
   border:none;
+  padding:14px 30px;
   border-radius:30px;
-  background:linear-gradient(45deg,var(--pink),var(--softPink));
   color:white;
+  font-size:18px;
   cursor:pointer;
+  margin:15px;
+  box-shadow:0 10px 20px rgba(255,105,135,0.3);
   transition:0.3s;
 }
-.btn:hover{ transform:scale(1.05); }
+
+.btn:hover{
+  transform:scale(1.1);
+}
+
+/* Proposal box */
+.proposal{
+  margin-top:40px;
+}
 
 /* Popup */
 .popup{
   position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(255,192,203,0.3);
-  backdrop-filter:blur(8px);
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  background:#fff0f6;
+  padding:40px;
+  border-radius:20px;
+  box-shadow:0 20px 60px rgba(0,0,0,0.2);
   display:none;
-  align-items:center;
-  justify-content:center;
-  z-index:1000;
-}
-
-.popup-content{
-  background:rgba(255,255,255,0.6);
-  backdrop-filter:blur(20px);
-  padding:40px 25px;
-  border-radius:35px;
   width:90%;
-  max-width:500px;
-  position:relative;
-  animation:fadeIn 0.4s ease;
+  max-width:400px;
 }
 
-@keyframes fadeIn{
-  from{transform:scale(0.8);opacity:0;}
-  to{transform:scale(1);opacity:1;}
+.popup h2{
+  font-family:'Great Vibes',cursive;
+  font-size:40px;
+  margin-bottom:15px;
 }
 
 .close{
   position:absolute;
-  right:20px;
-  top:15px;
+  top:10px;
+  right:15px;
   cursor:pointer;
   font-size:20px;
 }
 
-.romantic-img{
-  width:100%;
-  border-radius:20px;
-  margin-bottom:20px;
-  box-shadow:0 10px 30px rgba(255,100,150,0.3);
-}
-
-@media(max-width:600px){
-  .glow-title{font-size:40px;}
-}
-
 </style>
 </head>
+
 <body>
 
-<header class="hero">
-  <h1 class="glow-title">Happy Valentine's Day 💕</h1>
-  <div class="sub-text">Hi Vardhu ❤️</div>
+<h1 class="glow-title">Happy Valentine’s Day</h1>
+<p class="sub">Hi Ritesh ❤️</p>
 
-  <div class="music-box" onclick="playMusic()" id="musicBox">
-    💗 Do you want to listen to my heart?
-  </div>
-</header>
+<img src="yourphoto.jpg" class="main-img">
 
-<div class="card">
-  <h2>A Little Love Note 💌</h2>
-  <p>
-    Every moment with you feels like a beautiful dream I never want to wake up from.
-    You make my heart smile in ways I never knew were possible.
-    You're my favorite person, my safe place, and my greatest adventure. 💖
-  </p>
-  <button class="btn" onclick="openPopup()">Click for Surprise 💝</button>
+<p>This is just for you 🥺💕</p>
+
+<!-- Music Button -->
+<button class="btn" onclick="playMusic()">Do you want to listen to my heart? 🎶</button>
+
+<!-- Hidden YouTube iframe -->
+<div id="ytplayer" style="display:none;"></div>
+
+<!-- Proposal Section -->
+<div class="proposal">
+  <h2 style="font-family:'Great Vibes',cursive;font-size:40px;">I want to be in your arms always. Will you be my Valentine?</h2>
+  <button class="btn" onclick="showPopup()">YES 😍</button>
+  <button class="btn" id="noBtn">NO 😜</button>
 </div>
 
-<div class="card proposal">
-  <h2>Will you be my Valentine? 💘</h2>
-  <button class="btn" onclick="showYesPopup()">YES 😍</button>
-  <button class="btn" id="noBtn" onmouseover="moveNo()">NO 😜</button>
-</div>
-
-<!-- Surprise Popup -->
+<!-- Popup -->
 <div class="popup" id="popup">
-  <div class="popup-content">
-    <span class="close" onclick="closePopup()">✖</span>
-    <img src="couple.jpg" class="romantic-img">
-    <h2 style="font-family:'Pacifico'">You're My Everything 💕</h2>
-    <p>
-      In your arms, I find my home.
-      In your smile, I find my peace.
-      In your love, I find my forever. ❤️
-    </p>
-  </div>
-</div>
-
-<!-- YES Popup -->
-<div class="popup" id="yesPopup">
-  <div class="popup-content">
-    <span class="close" onclick="closeYesPopup()">✖</span>
-    <div style="font-size:40px;">🎉🥳💖</div>
-    <h2 style="font-family:'Pacifico'">Yaaay!</h2>
-    <p>
-      I knew you'd say yes! You just made me the happiest person ever! 🥰💕
-    </p>
-  </div>
-</div>
-
-<!-- Hidden YouTube Player -->
-<div style="position:absolute; width:0; height:0; overflow:hidden;">
-  <iframe
-    id="youtubeIframe"
-    width="0"
-    height="0"
-    src=""
-    frameborder="0"
-    allow="autoplay"
-  ></iframe>
+  <span class="close" onclick="closePopup()">✖</span>
+  <h2>Yaaay! 🎉💖</h2>
+  <p>Thanks a lot dear 🥰💞</p>
 </div>
 
 <script>
 
 /* Floating hearts */
-function createHeart(){
-  const heart=document.createElement("div");
-  heart.classList.add("heart");
-  heart.innerHTML="💗";
-  heart.style.left=Math.random()*100+"vw";
-  heart.style.animationDuration=(3+Math.random()*5)+"s";
+setInterval(()=>{
+  const heart=document.createElement('div');
+  heart.className='heart';
+  heart.innerHTML='💗';
+  heart.style.left=Math.random()*100+'vw';
+  heart.style.animationDuration=(5+Math.random()*5)+'s';
   document.body.appendChild(heart);
-  setTimeout(()=>heart.remove(),6000);
-}
-setInterval(createHeart,500);
+  setTimeout(()=>heart.remove(),8000);
+},600);
 
-/* Surprise Popup */
-function openPopup(){
-  document.getElementById("popup").style.display="flex";
+/* Music */
+function playMusic(){
+  document.getElementById("ytplayer").innerHTML=
+  `<iframe width="0" height="0"
+  src="https://www.youtube.com/embed/Umqb9KENgmk?autoplay=1&loop=1&playlist=Umqb9KENgmk"
+  frameborder="0"
+  allow="autoplay"></iframe>`;
 }
+
+/* Popup */
+function showPopup(){
+  document.getElementById("popup").style.display="block";
+}
+
 function closePopup(){
   document.getElementById("popup").style.display="none";
 }
 
-/* YES Popup */
-function showYesPopup(){
-  document.getElementById("yesPopup").style.display="flex";
-}
-function closeYesPopup(){
-  document.getElementById("yesPopup").style.display="none";
-}
-
-/* Move NO button */
-function moveNo(){
-  const btn=document.getElementById("noBtn");
-  btn.style.position="absolute";
-  btn.style.left=Math.random()*80+"%";
-  btn.style.top=Math.random()*80+"%";
-}
-
-/* Play YouTube Music */
-function playMusic(){
-  const box=document.getElementById("musicBox");
-  document.getElementById("youtubeIframe").src=
-    "https://www.youtube.com/embed/Umqb9KENgmk?autoplay=1&loop=1&playlist=Umqb9KENgmk";
-  box.innerHTML="💓 My heart beats only for you...";
-}
+/* Naughty NO button */
+const noBtn=document.getElementById("noBtn");
+noBtn.addEventListener("mouseover",()=>{
+  noBtn.style.position="absolute";
+  noBtn.style.left=Math.random()*80+"vw";
+  noBtn.style.top=Math.random()*80+"vh";
+});
 
 </script>
 
