@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Valentine Surprise 💖</title>
+<title>Happy Valentine's Day 💖</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 
 :root{
-  --pink1:#ffd6eb;
-  --pink2:#ffeaf6;
-  --mainPink:#ff4d88;
-  --darkPink:#ff1a66;
+  --bg1:#ffeaf6;
+  --bg2:#ffd6eb;
+  --pink:#ff5c8a;
+  --softPink:#ff8fb1;
 }
 
 *{
@@ -24,146 +24,155 @@
 
 body{
   font-family:'Poppins',sans-serif;
-  background:linear-gradient(135deg,var(--pink1),var(--pink2));
-  overflow-x:hidden;
+  background:linear-gradient(to bottom,var(--bg1),var(--bg2));
   text-align:center;
-  color:var(--mainPink);
+  overflow-x:hidden;
+  color:var(--pink);
 }
 
-/* Floating hearts */
+/* Floating Hearts */
 .heart{
   position:fixed;
   font-size:18px;
   animation:float 6s linear infinite;
-  opacity:0.7;
+  opacity:0.6;
 }
-
 @keyframes float{
-  0%{transform:translateY(100vh) scale(0.8);}
-  100%{transform:translateY(-10vh) scale(1.2);}
+  0%{transform:translateY(100vh);}
+  100%{transform:translateY(-10vh);}
 }
 
-/* Main Card */
-.card{
+/* Header */
+header{
+  padding:70px 20px 30px;
+}
+h1{
+  font-family:'Pacifico';
+  font-size:65px;
+}
+.sub{
+  font-size:20px;
+  margin-top:10px;
+}
+
+/* Music Button */
+.music-box{
+  margin-top:20px;
+  display:inline-block;
   background:rgba(255,255,255,0.6);
+  backdrop-filter:blur(10px);
+  padding:10px 25px;
+  border-radius:30px;
+  cursor:pointer;
+  font-size:14px;
+  box-shadow:0 5px 20px rgba(255,0,128,0.2);
+  transition:0.3s;
+}
+.music-box:hover{
+  transform:scale(1.05);
+}
+
+/* Card */
+.card{
+  background:rgba(255,255,255,0.5);
   backdrop-filter:blur(15px);
   width:90%;
   max-width:600px;
-  margin:80px auto;
+  margin:40px auto;
   padding:50px;
-  border-radius:30px;
-  box-shadow:0 20px 60px rgba(255,105,180,0.3);
+  border-radius:35px;
+  box-shadow:0 20px 50px rgba(255,100,150,0.2);
 }
-
 .card h2{
   font-family:'Pacifico';
-  font-size:35px;
   margin-bottom:20px;
 }
-
 .card p{
   line-height:1.7;
-  font-size:16px;
 }
 
+/* Button */
 .btn{
-  margin-top:30px;
+  margin-top:25px;
   padding:14px 35px;
   border:none;
-  border-radius:40px;
-  font-size:16px;
-  background:linear-gradient(45deg,var(--mainPink),var(--darkPink));
+  border-radius:30px;
+  background:linear-gradient(45deg,var(--pink),var(--softPink));
   color:white;
   cursor:pointer;
   transition:0.3s;
 }
-
 .btn:hover{
-  transform:scale(1.08);
+  transform:scale(1.05);
 }
 
-/* Popup Overlay */
+/* Proposal */
+.proposal button{
+  margin:15px;
+}
+
+/* Popup */
 .popup{
   position:fixed;
   top:0;
   left:0;
   width:100%;
   height:100%;
-  background:rgba(255,105,180,0.25);
+  background:rgba(255,192,203,0.3);
   backdrop-filter:blur(8px);
   display:none;
   align-items:center;
   justify-content:center;
-  padding:20px;
 }
-
-/* Popup Card */
 .popup-content{
-  background:rgba(255,255,255,0.7);
+  background:rgba(255,255,255,0.6);
   backdrop-filter:blur(20px);
-  border-radius:35px;
   padding:50px 30px;
-  width:100%;
+  border-radius:35px;
+  width:90%;
   max-width:500px;
   position:relative;
-  box-shadow:0 20px 60px rgba(255,0,128,0.4);
   animation:fadeIn 0.4s ease;
 }
-
 @keyframes fadeIn{
-  from{transform:scale(0.8); opacity:0;}
-  to{transform:scale(1); opacity:1;}
+  from{transform:scale(0.8);opacity:0;}
+  to{transform:scale(1);opacity:1;}
 }
-
 .close{
   position:absolute;
-  top:15px;
   right:20px;
-  font-size:20px;
+  top:15px;
   cursor:pointer;
-  color:var(--mainPink);
+  font-size:20px;
 }
-
-/* Circular Image */
 .profile-img{
-  width:160px;
-  height:160px;
+  width:150px;
+  height:150px;
   border-radius:50%;
   object-fit:cover;
-  border:6px solid white;
-  box-shadow:0 0 25px var(--mainPink);
+  border:5px solid white;
+  box-shadow:0 0 25px var(--softPink);
   margin-bottom:20px;
-}
-
-.popup-content h3{
-  font-family:'Pacifico';
-  font-size:30px;
-  margin-bottom:15px;
-}
-
-.popup-content p{
-  font-size:15px;
-  line-height:1.7;
-  margin-bottom:20px;
-}
-
-.emoji-row{
-  font-size:22px;
 }
 
 /* Responsive */
 @media(max-width:600px){
-  .card{
-    padding:30px;
-  }
-  .popup-content{
-    padding:40px 20px;
-  }
+  h1{font-size:40px;}
+  .card{padding:30px;}
 }
 
 </style>
 </head>
 <body>
+
+<header>
+  <h1>Happy Valentine's Day 💕</h1>
+  <div class="sub">Hi Vardhu ❤️</div>
+
+  <div class="music-box" onclick="playMusic()" id="musicBox">
+    💗 Do you want to listen to my heart?
+  </div>
+</header>
 
 <div class="card">
   <h2>A Little Love Note 💌</h2>
@@ -175,27 +184,38 @@ body{
   <button class="btn" onclick="openPopup()">Click for Surprise 💝</button>
 </div>
 
+<div class="card proposal">
+  <h2>Vardhu, will you be my Valentine? 💘</h2>
+  <button class="btn">YES 😍</button>
+  <button class="btn">Can't catch me! 😜</button>
+</div>
+
 <!-- Popup -->
 <div class="popup" id="popup">
   <div class="popup-content">
     <span class="close" onclick="closePopup()">✖</span>
-
-    <div style="font-size:28px; margin-bottom:15px;">🎉💖🎉</div>
-
-    <!-- CHANGE IMAGE BELOW -->
+    <div style="font-size:25px;">🎉💖🎉</div>
     <img src="your-photo.jpg" class="profile-img">
-
-    <h3>You're My Everything, Vardhu! 💕</h3>
-
+    <h2>You're My Everything 💕</h2>
     <p>
       If I could give you one thing in life, I'd give you the ability to see yourself 
-      through my eyes. Only then would you realize how special you are to me. 
+      through my eyes. Only then would you realize how special you are to me.
       I love you more than words can say!
     </p>
-
-    <div class="emoji-row">❤️ 💕 💖 💗 ❤️</div>
-
+    ❤️ 💕 💖 💗 ❤️
   </div>
+</div>
+
+<!-- Hidden YouTube Player -->
+<div style="position:absolute; width:0; height:0; overflow:hidden;">
+  <iframe
+    id="youtubeIframe"
+    width="0"
+    height="0"
+    src=""
+    frameborder="0"
+    allow="autoplay"
+  ></iframe>
 </div>
 
 <script>
@@ -206,22 +226,36 @@ function createHeart(){
   heart.classList.add("heart");
   heart.innerHTML="💗";
   heart.style.left=Math.random()*100+"vw";
-  heart.style.fontSize=(15+Math.random()*20)+"px";
   heart.style.animationDuration=(3+Math.random()*5)+"s";
   document.body.appendChild(heart);
   setTimeout(()=>heart.remove(),6000);
 }
 setInterval(createHeart,500);
 
+/* Popup */
 function openPopup(){
   document.getElementById("popup").style.display="flex";
 }
-
 function closePopup(){
   document.getElementById("popup").style.display="none";
+}
+
+/* Play YouTube Music */
+function playMusic(){
+  const box = document.getElementById("musicBox");
+
+  document.getElementById("youtubeIframe").src =
+    "https://www.youtube.com/embed/Umqb9KENgmk?autoplay=1&loop=1&playlist=Umqb9KENgmk";
+
+  box.innerHTML = "💓 My heart beats only for you...";
 }
 
 </script>
 
 </body>
 </html>
+
+
+</body>
+</html>
+
